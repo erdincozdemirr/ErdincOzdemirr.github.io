@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Erdinc Ozdemir - Java Backend Developer</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico"/>
+    <!-- Custom Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet"/>
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://db.onlinewebfonts.com/c/07cb29fdcb073fff840edc6de2067b50?family=Amsterdam+Four_ttf"
+          rel="stylesheet" type="text/css"/>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet"/>
+    <style>
+        .navbar_first a {
+            color: white !important;
+            text-decoration: none !important;
+        }
+
+        #flyingIcon {
+            position: fixed;
+            width: 5cm;
+            height: 5cm;
+            top: 5%;
+            left: 5%;
+            background: transparent;
+            animation: smoothFly 60s linear infinite;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.8; /* Hafif şeffaflık da olsun */
+        }
+
+        @keyframes smoothFly {
+            0% {
+                top: 5%;
+                left: 5%;
+                transform: rotate(0deg);
+            }
+            20% {
+                top: 20%;
+                left: 70%;
+                transform: rotate(30deg);
+            }
+            40% {
+                top: 60%;
+                left: 60%;
+                transform: rotate(60deg);
+            }
+            60% {
+                top: 80%;
+                left: 20%;
+                transform: rotate(90deg);
+            }
+            80% {
+                top: 40%;
+                left: 10%;
+                transform: rotate(120deg);
+            }
+            100% {
+                top: 5%;
+                left: 5%;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Navbar Brand Responsive */
+        .navbar-brand h1 {
+            font-size: 2.5rem;
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 1400px) {
+            #flyingIcon {
+                width: 4cm;
+                height: 4cm;
+            }
+
+            #contactMe h1 {
+                font-size: 2.2rem;
+            }
+
+            #contactMe h2 {
+                font-size: 1.8rem;
+            }
+
+            #contactMe h4, #contactMe h5, #contactMe p, #contactMe label {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .navbar-brand h1 {
+                font-size: 2.2rem;
+            }
+
+            #flyingIcon {
+                width: 3.5cm;
+                height: 3.5cm;
+            }
+
+            #contactMe h1 {
+                font-size: 2rem;
+            }
+
+            #contactMe h2 {
+                font-size: 1.6rem;
+            }
+
+            #contactMe h4, #contactMe h5, #contactMe p, #contactMe label {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .navbar-brand h1 {
+                font-size: 1.8rem;
+            }
+
+            #flyingIcon {
+                width: 3cm;
+                height: 3cm;
+            }
+
+            #contactMe h1 {
+                font-size: 1.8rem;
+            }
+
+            #contactMe h2 {
+                font-size: 1.5rem;
+            }
+
+            #contactMe h4, #contactMe h5, #contactMe p, #contactMe label {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand h1 {
+                font-size: 1.5rem;
+            }
+
+            #flyingIcon {
+                width: 2.5cm;
+                height: 2.5cm;
+            }
+
+            #contactMe .row {
+                flex-direction: column;
+            }
+
+            #contactMe .col-12.col-lg-5 {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+
+            #contactMe .col-12.col-lg-7 {
+                order: 2;
+            }
+
+            #contactMe h1 {
+                font-size: 1.6rem;
+            }
+
+            #contactMe h2 {
+                font-size: 1.4rem;
+            }
+
+            #contactMe h4, #contactMe h5, #contactMe p, #contactMe label {
+                font-size: 0.9rem;
+            }
+
+            /* Formu ve yazıları tam ortaya hizala */
+            #contactMe form {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-brand h1 {
+                font-size: 1.2rem;
+            }
+
+            #flyingIcon {
+                width: 2cm;
+                height: 2cm;
+            }
+
+            #contactMe h1 {
+                font-size: 1.4rem;
+            }
+
+            #contactMe h2 {
+                font-size: 1.2rem;
+            }
+
+            #contactMe h4, #contactMe h5, #contactMe p, #contactMe label {
+                font-size: 0.8rem;
+            }
+
+            #contactMe .row {
+                flex-direction: column;
+            }
+        }
+
+        /* Navbar Padding/Margin Responsive */
+        .navbar_first {
+            padding: 1rem 2rem;
+            transition: all 0.3s ease;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .navbar_first {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar_first {
+                padding: 0.5rem 1rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar_first {
+                padding: 0.3rem 0.5rem;
+                font-size: 0.55rem;
+            }
+        }
+
+        /* Navbar Links Responsive */
+        .navbar-nav .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav .nav-link {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar-nav .nav-link {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.65rem;
+            }
+        }
+
+
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXFGFHJEZF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-FXFGFHJEZF');
+    </script>
+</head>
+
+<body class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    <!-- Navigation-->
+    <nav class="sticky-top">
+        <div class="bg-gradient-primary-to-secondary">
+            <div class="container d-flex justify-content-between align-items-center navbar_first py-2">
+                <!-- İletişim bilgileri -->
+                <div class="d-none d-lg-flex gap-3">
+                    <!-- İletişim Bilgileri -->
+                    <!-- Telefon -->
+                    <div class="first_ d-flex text-white align-items-center">
+                        <div class="pe-2">
+                            <i class="bi bi-telephone-fill"></i>
+                        </div>
+                        <div class="first_info">
+                            <a href="https://wa.me/905067471812?text=Merhaba,%20size%20web%20siteniz%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum.">+90
+                                506 747 18 12</a>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="first_ d-flex text-white align-items-center">
+                        <div class="pe-2">
+                            <i class="bi bi-envelope-fill"></i>
+                        </div>
+                        <div class="first_info">
+                            <a href="mailto:erdincozdemir1812@gmail.com">erdincozdemir1812@gmail.com</a>
+                        </div>
+                    </div>
+                    <!-- Lokasyon -->
+                    <div class="first_ d-flex text-white align-items-center">
+                        <div class="pe-2">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+                        <div class="first_info">
+                            <a href="javascript:void(0)">Istanbul / Turkiye</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sosyal İkonlar -->
+                <div class="d-flex gap-3 align-items-center">
+                    <a class="first_icons text-decoration-none" href="https://www.linkedin.com/in/erdincozdemir/"><i
+                            class="bi bi-linkedin"></i></a>
+                    <a class="first_icons text-decoration-none" href="mailto:erdincozdemir1812@gmail.com"><i
+                            class="bi bi-envelope-fill"></i></a>
+                    <a class="first_icons text-decoration-none"
+                       href="https://wa.me/905067471812?text=Merhaba,%20size%20web%20siteniz%20%C3%BCzerinden%20ula%C5%9F%C4%B1yorum."><i
+                            class="bi bi-whatsapp"></i></a>
+                    <a class="first_icons text-decoration-none" href="https://github.com/ErdincOzdemirr"><i
+                            class="bi bi-github"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container d-flex align-items-center">
+                <a class="navbar-brand m-2 ps-2" href="index.html">
+                    <h1 class="fw-bolder m-2" style="font-family: 'Amsterdam Four_ttf'"><span
+                            class="text-gradient d-inline">Erdinc Ozdemir</span></h1>
+                </a>
+
+                <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                        class="navbar-toggler" data-bs-target="#navbarSupportedContent"
+                        data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 fs-7 fw-bolder">
+                        <li class="nav-item"><a class="nav-link mx-2" href="#header">Home</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="#aboutMe">About Me</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="#education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link mx-2" href="#contactMe">Contact Me</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Header-->
+    <header id="header">
+        <div class="container">
+            <div class="row gx-5 align-items-center">
+                <div class="col-xxl-5">
+                    <!-- Header text content-->
+                    <div class="text-center text-xxl-start">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4 fs-6">
+                            <div class="text-uppercase">Java &middot; Spring Boot &middot; Microservices</div>
+                        </div>
+                        <div class="fs-2 fw-light text-muted">If you want to succeed,</div>
+                        <h1 class="display-3 fw-bolder mb-5"><span
+                                class="text-gradient d-inline">Start by Working</span></h1>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
+                            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="#contactMe">Contact
+                                Me!</a>
+                            <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder"
+                               download="Erdinc_Ozdemir_Java_Back_CV.pdf" href="assets/Erdinc_Ozdemir_Java_Back_CV.pdf"
+                               onclick="gtag('event', 'cv_download', {
+                                            'event_category': 'file',
+                                            'event_label': 'Erdinc_Ozdemir_Java_Back_CV.pdf'
+                                        });">
+                                <div class="d-inline-block bi bi-download me-2"></div>
+                                Download CV!
+                            </a>
+                        </div>
+                        <div class="d-flex justify-content-center text-start fs-2 gap-4">
+                            <a href="https://www.linkedin.com/in/erdincozdemir/"><i
+                                    class="bi bi-linkedin"></i></a>
+                            <a
+                                    href="mailto:erdincozdemir1812@gmail.com?subject=Yeni İş Fırsatı Talebi&body=Merhaba, sizinle web siteniz üzerinden iletişime geçiyorum."><i
+                                    class="bi bi-envelope-fill"></i></a>
+                            <a
+                                    href="https://wa.me/905067471812?text=Merhaba,%20size%20web%20siteniz%20üzerinden%20ulaşıyorum."><i
+                                    class="bi bi-whatsapp"></i></a>
+                            <a href="https://github.com/ErdincOzdemirr"><i
+                                    class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-7">
+                    <!-- Header profile picture-->
+                    <div class="d-flex justify-content-center mt-xxl-0">
+                        <div class="profile bg-gradient-primary-to-secondary">
+                            <!-- TIP: For best results, use a photo with a transparent background like the demo example below-->
+                            <!-- Watch a tutorial on how to do this on YouTube (link)-->
+                            <img class="profile-img" src="assets/profile.png" alt="..."/>
+                            <div class="dots-1">
+                                <!-- SVG Dots-->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                     xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
+                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
+                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
+                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
+                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
+                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
+                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
+                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
+                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
+                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
+                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
+                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
+                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
+                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
+                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
+                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
+                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
+                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
+                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
+                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
+                                            </g>
+                                        </svg>
+                                <!-- END of SVG dots-->
+                            </div>
+                            <div class="dots-2">
+                                <!-- SVG Dots-->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                     xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
+                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
+                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
+                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
+                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
+                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
+                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
+                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
+                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
+                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
+                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
+                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
+                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
+                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
+                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
+                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
+                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
+                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
+                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
+                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
+                                            </g>
+                                        </svg>
+                                <!-- END of SVG dots-->
+                            </div>
+                            <div class="dots-3">
+                                <!-- SVG Dots-->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                     xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
+                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
+                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
+                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
+                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
+                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
+                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
+                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
+                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
+                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
+                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
+                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
+                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
+                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
+                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
+                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
+                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
+                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
+                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
+                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
+                                            </g>
+                                        </svg>
+                                <!-- END of SVG dots-->
+                            </div>
+                            <div class="dots-4">
+                                <!-- SVG Dots-->
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                     viewBox="0 0 191.6 1215.4" style="enable-background: new 0 0 191.6 1215.4"
+                                     xml:space="preserve">
+                                            <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)">
+                                                <path d="M227.7,12788.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,12801.6,289.7,12808.6,227.7,12788.6z"></path>
+                                                <path d="M1507.7,12788.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,12801.6,1569.7,12808.6,1507.7,12788.6z"></path>
+                                                <path d="M227.7,11508.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,11521.6,289.7,11528.6,227.7,11508.6z"></path>
+                                                <path d="M1507.7,11508.6c-151-50-253-216-222-362c25-119,136-230,254-255c194-41,395,142,375,339c-11,105-90,213-190,262        C1663.7,11521.6,1569.7,11528.6,1507.7,11508.6z"></path>
+                                                <path d="M227.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,10241.6,289.7,10248.6,227.7,10228.6z"></path>
+                                                <path d="M1507.7,10228.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,10241.6,1569.7,10248.6,1507.7,10228.6z"></path>
+                                                <path d="M227.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,8961.6,289.7,8968.6,227.7,8948.6z"></path>
+                                                <path d="M1507.7,8948.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,8961.6,1569.7,8968.6,1507.7,8948.6z"></path>
+                                                <path d="M227.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,7681.6,289.7,7688.6,227.7,7668.6z"></path>
+                                                <path d="M1507.7,7668.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,7681.6,1569.7,7688.6,1507.7,7668.6z"></path>
+                                                <path d="M227.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,6401.6,289.7,6408.6,227.7,6388.6z"></path>
+                                                <path d="M1507.7,6388.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,6401.6,1569.7,6408.6,1507.7,6388.6z"></path>
+                                                <path d="M227.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,5121.6,289.7,5128.6,227.7,5108.6z"></path>
+                                                <path d="M1507.7,5108.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,5121.6,1569.7,5128.6,1507.7,5108.6z"></path>
+                                                <path d="M227.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,3841.6,289.7,3848.6,227.7,3828.6z"></path>
+                                                <path d="M1507.7,3828.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,3841.6,1569.7,3848.6,1507.7,3828.6z"></path>
+                                                <path d="M227.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,2561.6,289.7,2568.6,227.7,2548.6z"></path>
+                                                <path d="M1507.7,2548.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,2561.6,1569.7,2568.6,1507.7,2548.6z"></path>
+                                                <path d="M227.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C383.7,1281.6,289.7,1288.6,227.7,1268.6z"></path>
+                                                <path d="M1507.7,1268.6c-105-35-200-141-222-248c-43-206,163-412,369-369c155,32,275,190,260,339c-11,105-90,213-190,262        C1663.7,1281.6,1569.7,1288.6,1507.7,1268.6z"></path>
+                                            </g>
+                                        </svg>
+                                <!-- END of SVG dots-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- About Section-->
+    <section id="aboutMe" class="bg-light py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
+                        <p class="lead fw-light mb-4">Code like a poet, deploy like a warrior — I’m a Java
+                            Developer.</p>
+                        <div class="text-start my-5">
+                            <p class="text-muted tabbed-paragraph">I live in Istanbul, Turkey, and completed my
+                                bachelor's degree in Electrical and Electronics Engineering,
+                                I am continuing my thesis-based master's degree in Computer Engineering at Kocaeli
+                                University. I have enhanced my software skills through courses from various
+                                institutions.</p>
+                            <p class="text-muted tabbed-paragraph">I am a software engineer in Java-based backend web
+                                application development, with a skill set that includes
+                                Java 8+, Spring Boot, SQL, JPA/Hibernate, RESTful APIs and Spring Security. I like to
+                                work on Microservice architecture. I have an interest in developing Financial
+                                application.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Experience Section-->
+    <section id="experience" class="bg-white py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-primary d-inline">Experience</span></h2>
+                        <section>
+                            <!-- Experience Card 1-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Java Developer</div>
+                                                <div class="small fw-bolder">Medisa ( via Mindtech )</div>
+                                                <div class="small text-muted">Nov 2024 - Present</div>
+                                                <div class="small text-muted">Istanbul, Turkiye</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 text-muted tabbed-paragraph ">
+                                            <div class="small text-muted tabbed-paragraph">Medisa – Health Insurance
+                                                Application - <span>Microservices Project</span>- Java 17, Spring Boot,
+                                                OracleDB, Hibernate, Spring Data JPA, Maven, Git, Bitbucket, Jira, XML,
+                                                Config Server, API Manager,
+                                                ELK Stack (Elasticsearch, Logstash, Kibana), Dynatrace, Nexus,
+                                                SonarQube, Swagger, Postman, Jenkins, Rancher, Agile Methodologies
+                                            </div>
+                                            <div class="small text-muted tabbed-paragraph">Worked on the claims
+                                                management module of Medisa's health insurance application, developing
+                                                microservices for processing insurance claims, calculation of remaining
+                                                limits, and claim status tracking.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Java Developer</div>
+                                                <div class="small fw-bolder">Qkare ( via Kraft Tech )</div>
+                                                <div class="small text-muted">Sep 2023 - Nov 2024</div>
+                                                <div class="small text-muted">Istanbul, Turkiye</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 text-muted tabbed-paragraph ">
+                                            <div class="small text-muted tabbed-paragraph">HR Management Application
+                                                with Financial Operations –<span> Modular Monolith Project</span> - Java
+                                                17, Spring Boot, PostgreSQL, Spring Data JPA, Hibernate,
+                                                Spring Security, Docker, MinIO, Log4j, Swagger, Postman, Git, GitLab,
+                                                Redmine, Maven, Agile Methodologies
+                                            </div>
+                                            <div class="small text-muted tabbed-paragraph">Designed and developed a
+                                                scalable multi-tenancy HR and Invoice Management system, enabling
+                                                efficient payroll processing, employee records management,
+                                                leave tracking, expense handling, and invoicing for multiple clients,
+                                                including outsourced companies.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Experience Card 3-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col-lg-4 text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-primary fw-bolder mb-2">Java Developer Int</div>
+                                                <div class="small fw-bolder">Aglontech</div>
+                                                <div class="small text-muted">Jan 2023 - Sep 2023</div>
+                                                <div class="small text-muted">Istanbul, Turkiye</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 text-muted tabbed-paragraph ">
+                                            <div class="small text-muted tabbed-paragraph">Invoice Management System -
+                                                <span>Monolithic Project</span> - Java 17, Spring Boot, MySQL, Spring
+                                                Data JPA, Hibernate, Spring Security, Swagger, Postman, Git, Bitbucket,
+                                                Jira, Maven
+                                            </div>
+                                            <div class="small text-muted tabbed-paragraph">Developed a corporate invoice
+                                                management application to handle billing, invoicing, expense tracking,
+                                                and financial record-keeping for companies and outsourced service
+                                                providers.
+                                            </div>
+                                            <div class="small text-muted tabbed-paragraph">Enhanced my Java Backend
+                                                skills through internal trainings and mentoring.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Education Section-->
+    <section id="education" class="bg-light py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-secondary d-inline">Education</span></h2>
+                        <section>
+                            <!-- Education Card 1-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">Computer Engineering</div>
+                                                <div class="small fw-bolder">Kocaeli University</div>
+                                                <div class="small text-muted fst-italic">Kocaeli, Turkey</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 text-muted tabbed-paragraph ">
+                                            <div class="small text-muted tabbed-paragraph">After completing my
+                                                bachelor's degree in Electrical and Electronics
+                                                Engineering, I am continuing my thesis-based master's degree in Computer
+                                                Engineering at Kocaeli University.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Education Card 2-->
+                            <div class="card shadow border-0 rounded-4 mb-5">
+                                <div class="card-body p-5">
+                                    <div class="row align-items-center gx-5">
+                                        <div class="col-lg-5 text-center text-lg-start mb-4 mb-lg-0">
+                                            <div class="bg-light p-4 rounded-4">
+                                                <div class="text-secondary fw-bolder mb-2">Law</div>
+                                                <div class="small fw-bolder">Marmara University</div>
+                                                <div class="small text-muted fst-italic">Istanbul, Turkey</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-7 text-muted tabbed-paragraph ">
+                                            <div class="small text-muted tabbed-paragraph">After graduating from
+                                                Electrical and Electronics Engineering, I studied
+                                                law as a hobby during the covid-19 pandemic period
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="bg-white py-5">
+        <div class="container px-5">
+            <div class="row gx-5 justify-content-center">
+                <div class="col-xxl-8">
+                    <div class="text-center my-5">
+                        <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">My Skill Set</span></h2>
+                        <div class="accordion" id="accordionPanelsStayOpenExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button aria-controls="panelsStayOpen-collapseOne" aria-expanded="true" class="accordion-button"
+                                            data-bs-target="#panelsStayOpen-collapseOne" data-bs-toggle="collapse"
+                                            type="button">
+                                        Click to Learn My Skills
+                                    </button>
+                                </h2>
+                                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <!-- Burası senin skill kartlarının olduğu bölüm -->
+                                        <section>
+                                            <div class="card shadow border-0 rounded-4 mb-5">
+                                                <div class="card-body p-5">
+                                                    <!-- FrontEnd Section -->
+                                                    <div class="mb-5">
+                                                        <div class="d-flex align-items-center mb-4">
+                                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                                <i class="bi bi-display"></i>
+                                                            </div>
+                                                            <h3 class="fw-bolder mb-0"><span
+                                                                    class="text-gradient d-inline">FrontEnd</span></h3>
+                                                        </div>
+                                                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/html5-original-wordmark.svg" width="30">HTML
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/css3-original-wordmark.svg" width="30">CSS
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://tailwindcss.com/favicons/apple-touch-icon.png?v=4" width="30">Tailwind CSS
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://sass-lang.com/assets/img/logos/logo.svg" width="30">Sass
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/javascript-original.svg"
+                                                                            width="30">JavaScript
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/typescript-original.svg"
+                                                                            width="30">TypeScript
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/redux-original.svg"
+                                                                            width="30">Redux
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/react-original-wordmark.svg" width="30">React
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/angularjs-original.svg"
+                                                                            width="30">Angular
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- BackEnd Section -->
+                                                    <div class="mb-5">
+                                                        <div class="d-flex align-items-center mb-4">
+                                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                                <i class="bi bi-code-square"></i>
+                                                            </div>
+                                                            <h3 class="fw-bolder mb-0"><span
+                                                                    class="text-gradient d-inline">BackEnd</span></h3>
+                                                        </div>
+                                                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/?size=512&id=13679&format=png" width="30">Java 8, 11, 17
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://spring.io/img/projects/spring-boot.svg" width="30">Spring
+                                                                    Boot
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://i.hizliresim.com/s0ko3z2.png" width="30">Hibernate
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://spring.io/img/projects/spring-data.svg" width="30">Spring
+                                                                    Data
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://spring.io/img/projects/spring-security.svg" width="30">Spring Security
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://i.hizliresim.com/alpqepq.png" width="30">Spring Cloud
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Apache_Kafka_logo.svg/154px-Apache_Kafka_logo.svg.png" width="30">Apache Kafka
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://www.rabbitmq.com/img/rabbitmq-logo.svg" width="30">RabbitMQ
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/redis.png" width="30">Redis
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/external-soft-fill-juicy-fish/60/external-microservice-microservices-soft-fill-soft-fill-juicy-fish.png" width="30">Microservices
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://i.hizliresim.com/rds6yis.png" width="30">RestAPI
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/graphql.png" width="30">GraphQL
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Database Section -->
+                                                    <div class="mb-5">
+                                                        <div class="d-flex align-items-center mb-4">
+                                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                                <i class="bi bi-database"></i>
+                                                            </div>
+                                                            <h3 class="fw-bolder mb-0"><span
+                                                                    class="text-gradient d-inline">Database</span></h3>
+                                                        </div>
+                                                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/oracle-logo.png" width="30">OracleDB
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/mongodb-original-wordmark.svg" width="30">MongoDB
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/postgreesql.png" width="30">PostgreSQL
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/fluency/48/mysql-logo.png" width="30">MySQL
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/?size=512&id=3767&format=png" width="30">SQL
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://min.io/resources/favs/favicon-96x96.png" width="30">MinIO
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- DevOps Section -->
+                                                    <div class="mb-5">
+                                                        <div class="d-flex align-items-center mb-4">
+                                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                                <i class="bi bi-gear-wide-connected"></i>
+                                                            </div>
+                                                            <h3 class="fw-bolder mb-0"><span
+                                                                    class="text-gradient d-inline">DevOps</span></h3>
+                                                        </div>
+                                                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/fluency/48/docker.png" width="30">Docker
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://profilinator.rishav.dev/skills-assets/kubernetes-icon.svg"
+                                                                            width="30">Kubernetes
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://www.rancher.com/assets/img/favicon.png" width="30">Rancher
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://maven.java.net/favicon.png" width="30">Nexus
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://dt-cdn.net/images/favicon-48x48-transparent-48-9b4df9c769.png" width="30">Dynatrace
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/amazon-web-services.png" width="30">AWS
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Monitoring Section -->
+                                                    <div class="mb-0">
+                                                        <div class="d-flex align-items-center mb-4">
+                                                            <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 me-3">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                            </div>
+                                                            <h3 class="fw-bolder mb-0"><span
+                                                                    class="text-gradient d-inline">Monitoring / Logs / Tests</span>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/kibana.png" width="30">Kibana
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://img.icons8.com/color/48/elasticsearch.png" width="30">Elasticsearch
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://graylog.org/wp-content/uploads/2024/04/Graylog_Logo_2024_icon_blueblack-01.png" width="30">Graylog
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://logging.apache.org/log4j/2.x/_images/favicon.ico" width="30">Log4j
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://junit.org/junit5/assets/img/junit5-logo.png" width="30">JUnit
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <div class="d-flex align-items-center bg-light rounded-4 p-3 h-100">
+                                                                    <img
+                                                                            class="me-2"
+                                                                            src="https://site.mockito.org/favicon.ico" width="30">Mockito
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- text-center my-5 -->
+                </div> <!-- col-xxl-8 -->
+            </div> <!-- row gx-5 justify-content-center -->
+        </div> <!-- container px-5 -->
+    </section>
+    <!-- Call to action section-->
+    <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+            <div class="text-center">
+                <h3 class="fw-bolder mb-4">Success is the result of Hard Work, Perseverance and Sacrifice.</h3>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section-->
+    <section id="contactMe" class="py-5">
+        <div class="container px-5">
+            <!-- Contact form-->
+            <div class="bg-light rounded-4 py-5 px-4 px-md-5">
+                <div class="text-center mb-5">
+                    <div class="feature bg-primary bg-gradient-primary-to-secondary text-white rounded-3 mb-3"><i
+                            class="bi bi-envelope"></i></div>
+                    <h1 class="fw-bolder">Contact Me!</h1>
+                    <p class="lead fw-normal text-muted mb-0">Let's work together!</p>
+                </div>
+                <div class="row gx-5 justify-content-center">
+                    <div class="col-12 col-lg-5 mb-5 mb-lg-0 text-center text-lg-start">
+                        <br>
+                        <br>
+                        <h2 class="fw-bolder">Erdinc Ozdemir<br><h4>Java Developer</h4></h2>
+                        <br>
+                        <br>
+                        <div class="d-flex align-items-center mb-4 justify-content-center justify-content-lg-start">
+                            <div class="me-3">
+                                <a href="https://www.linkedin.com/in/erdincozdemir/" target="_blank">
+                                    <i class="bi bi-linkedin text-primary" style="font-size: 1.8rem;"></i>
+                                </a>
+                            </div>
+                            <div class="text-start">
+                                <a href="https://www.linkedin.com/in/erdincozdemir/" target="_blank">
+                                    <h5 class="mb-0">linkedin.com/in/erdincozdemir</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4 justify-content-center justify-content-lg-start">
+                            <div class="me-3">
+                                <a href="mailto:erdincozdemir1812@gmail.com?subject=Yeni İş Fırsatı Talebi&body=Merhaba, sizinle web siteniz üzerinden iletişime geçiyorum."><i
+                                        class="bi bi-envelope-fill text-primary" style="font-size: 1.8rem;"></i></a>
+                            </div>
+                            <div class="text-start">
+                                <a href="mailto:erdincozdemir1812@gmail.com?subject=Yeni İş Fırsatı Talebi&body=Merhaba, sizinle web siteniz üzerinden iletişime geçiyorum.">
+                                    <h5 class="mb-0">erdincozdemir1812@gmail.com</h5></a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4 justify-content-center justify-content-lg-start">
+                            <div class="me-3">
+                                <a href="https://wa.me/905067471812?text=Merhaba,%20size%20websitenizden%20ulaşıyorum."
+                                   target="_blank">
+                                    <i class="bi bi-whatsapp text-primary" style="font-size: 1.8rem;"></i>
+                                </a>
+                            </div>
+                            <div class="text-start">
+                                <a href="https://wa.me/905067471812?text=Merhaba,%20size%20web%20siteniz%20üzerinden%20ulaşıyorum."
+                                   target="_blank">
+                                    <h5 class="mb-0">+90 (506) 747 18 12</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start justify-content-center justify-content-lg-start">
+                            <div class="me-3">
+                                <i class="bi bi-geo-alt-fill text-primary" style="font-size: 1.8rem;"></i>
+                            </div>
+                            <div class="text-start">
+                                <h5 class="mb-1">Adres:</h5>
+                                <p class="mb-0">Istanbul / Turkiye</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-7">
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="113b69f4-71a1-43bf-acbf-660d1f278fde"/>
+                            <input type="hidden" name="from_name" value="My Website"/>
+
+                            <div class="form-floating mb-3">
+                                <input id="name" name="name" class="form-control" type="text"
+                                       placeholder="Enter your name..." required/>
+                                <label for="name">Full name</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="email" name="email" type="email"
+                                       placeholder="name@example.com" required/>
+                                <label for="email">Email address</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="phone" name="phone" type="tel"
+                                       placeholder="(123) 456-7890" required/>
+                                <label for="phone">Phone number</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <input class="form-control" id="subject" name="subject" type="text"
+                                       placeholder="Enter your subject..." required/>
+                                <label for="subject">Subject</label>
+                            </div>
+
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="message" name="message"
+                                          placeholder="Enter your message here..." style="height: 10rem"
+                                          required></textarea>
+                                <label for="message">Message</label>
+                            </div>
+
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Whatsapp Box Section-->
+    <div class="go-top">
+        <a class="button-wp" href="https://wa.me/905067471812?text=Merhaba,%20size%20web%20siteniz%20üzerinden%20ulaşıyorum."
+           target="_blank">
+            <svg class="bi bi-whatsapp" fill="currentColor" height="20" viewBox="0 0 16 16" width="20"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"></path>
+            </svg>
+            İletişime Geç!
+        </a>
+    </div>
+</main>
+<!-- Footer-->
+<footer class="bg-white py-4 mt-auto">
+    <div class="navbar navbar-expand-lg navbar-light bg-light py-4 ">
+        <div class="container px-4 d-flex align-items-center">
+
+            <div class="d-flex align-items-center" style="height: 100%;">
+                <a class="navbar-brand m-2 ps-2 " href="index.html">
+                    <h4 class="m-0" style="font-size: x-small">Copyright &copy; Erdinc Ozdemir 2025</h4>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav mb-2 mb-lg-0 fs-6 fw-bolder">
+                    <li class="nav-item"><a class="nav-link mx-2" href="#header">Home</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#aboutMe">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#contactMe">Contact Me</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
